@@ -3,7 +3,7 @@ require "colorize"
 @arr = [
   "YES!", "NO!", "MAYBE", "UNDOUBTEDLY!", "MOST CERTAINLY NOT!", 
   "WITH LUCK, IT MAY BE.", "HARD TO SAY RIGHT NOW.", "TRY AGAIN TOMORROW.",
-  "POSSIBLY", "NEVER!", "YOU CAN DO BETTER THAN THAT!", "IF YOU PRACTICE"
+  "POSSIBLY", "NEVER!", "YOU CAN DO BETTER THAN THAT!", "IF YOU PRACTICE MORE."
 ]
 
 @arr_orig = @arr.map { |n| n }
@@ -100,7 +100,7 @@ end
 def pick_response
   puts "Your answer is: ".cyan + @arr.sample.capitalize.yellow
   puts ""
-  puts "========================="
+  puts "======================================"
 end
 
 
