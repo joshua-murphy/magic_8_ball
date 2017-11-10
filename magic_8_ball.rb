@@ -1,7 +1,7 @@
 @arr = [
   "YES!", "NO!", "MAYBE", "UNDOUBTEDLY!", "MOST CERTAINLY NOT!", 
   "WITH LUCK, IT MAY BE.", "HARD TO SAY RIGHT NOW.", "TRY AGAIN TOMORROW.",
-  "POSSIBLY", "NEVER!", "YOU CAN DO BETTER THAN THAT!"
+  "POSSIBLY", "NEVER!", "YOU CAN DO BETTER THAN THAT!", "IF YOU PRACTICE"
 ]
 
 @arr_orig = @arr.map { |n| n }
@@ -48,6 +48,7 @@ end
 
 
 def reset_questions
+  puts "All changes cleared!"
   @arr = @arr_orig
   start
 end
@@ -67,9 +68,22 @@ def question_check(q)
 end
 
 
+def secret_chance
+  chance = rand(20).ceil + 1
+  case chance
+    when 18, 19, 20
+      puts "Don't ask me about secrets."
+    when 1
+      puts "1234 is NOT a secret combination"
+  else
+  end
+end  
+
+
 def pick_interlude
   puts ""
   arr = ["Good question", "That is a tough one", "Let's see"]
+  secret_chance
   puts arr.sample + "..."
   puts ""
   pick_response
@@ -77,8 +91,9 @@ end
 
 
 def pick_response
-  puts @arr.sample.capitalize
+  puts "Your answer is: " + @arr.sample.capitalize
   puts ""
+  puts "========================="
 end
 
 
