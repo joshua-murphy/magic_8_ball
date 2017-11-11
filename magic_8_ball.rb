@@ -12,13 +12,9 @@ require "colorize"
 def start
   puts ""
   puts "I am the Magic 8 Ball! What is your question?".blue
-  puts "It had better not be 'nothing'!".red
+  puts "It had better not be 'nothing', or I'll kick you out!".red
   question = gets.strip
-  if question.downcase == "secrets?"
-    secret_menu
-  else
-    question_check(question)
-  end
+  question.downcase == "secrets?" ? secret_menu : question_check(question)
 end
 
 
@@ -52,7 +48,7 @@ end
 
 
 def reset_questions
-  puts "All changes cleared!".green
+  puts "  All changes cleared!".green
   @arr = @arr_orig
   start
 end
@@ -77,11 +73,11 @@ def secret_chance
   chance = rand(20).ceil + 1
   case chance
     when 18, 19, 20
-      puts "Don't ask me about secrets.".green
+      puts "  Don't ask me about secrets.".green
     when 1
-      puts "1234 is NOT a secret combination".green
+      puts "  1234 is NOT a secret combination".green
     when 2
-      puts "Don't try 4321. It isn't a secret".green
+      puts "  Don't try 4321. It isn't a secret".green
   else
   end
 end  
@@ -91,16 +87,14 @@ def pick_interlude
   puts ""
   arr = ["Good question", "That is a tough one", "Let's see"]
   secret_chance
-  puts arr.sample.cyan + "...".cyan
+  puts "  " + arr.sample.cyan + "...".cyan
   puts ""
   pick_response
 end
 
 
 def pick_response
-  puts "Your answer is: ".cyan + @arr.sample.capitalize.yellow
-  puts ""
-  puts "======================================"
+  puts "  Your answer is: ".cyan + @arr.sample.capitalize.yellow
 end
 
 
